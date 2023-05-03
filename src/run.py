@@ -1,18 +1,10 @@
-import pandas as pd
+from Menu import Menu
+from const import CLOSE_MENU
+from Df_collection import DataFrameCollection
 
 if __name__ == "__main__":
-    df = pd.DataFrame()
-    i = 3
-    while i > 0:
-        name = input("Name: ")
-        age = int(input("Age: "))
-
-        new_df = pd.DataFrame({
-            "name": name,
-            "age": age,
-        }, index=[i])
-
-        df = pd.concat([df, new_df], ignore_index=True)
-        i -= 1
-
-    print(df)
+    df_collection = DataFrameCollection()
+    menu = Menu(df_collection=df_collection)
+    print("Welcome to our bookstore!\n")
+    while menu.run() != CLOSE_MENU:
+        print("\n")
